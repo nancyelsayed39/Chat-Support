@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#128c7e" stroke="#25d366" stroke-width="2"/>
+  
+  <!-- Chat bubbles -->
+  <g transform="translate(100, 100)">
+    <!-- Left bubble -->
+    <rect x="-60" y="-40" width="50" height="35" rx="8" fill="#25d366" opacity="0.9"/>
+    <polygon points="-20,-40 -15,-50 -10,-40" fill="#128c7e"/>
+    
+    <!-- Right bubble -->
+    <rect x="20" y="10" width="55" height="35" rx="8" fill="#ffffff" opacity="0.95"/>
+    <polygon points="20,10 15,20 10,10" fill="#128c7e"/>
+    
+    <!-- Center sparkle -->
+    <circle cx="0" cy="0" r="4" fill="#ffd700"/>
+    <path d="M-2,-8 L2,-8 L2,-2 L8,-2 L8,2 L2,2 L2,8 L-2,8 L-2,2 L-8,2 L-8,-2 L-2,-2 Z" fill="#ffd700" opacity="0.7"/>
+  </g>
+</svg>
