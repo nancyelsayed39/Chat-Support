@@ -8,9 +8,5 @@
       "source": "/:path((?!.*\\..*|_next).*)",
       "destination": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_API_URL": "@vite_api_url",
-    "VITE_SERVER_URL": "@vite_server_url"
-  }
+  ]
 }
