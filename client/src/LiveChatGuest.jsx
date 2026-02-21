@@ -3,8 +3,8 @@ import axios from "axios";
 import { socket } from "./socket";
 import "./LiveChatGuest.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
-const API_BASE_URL_FILES = import.meta.env.VITE_API_URL.replace('/admin', '') + "/files";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin";
+const API_BASE_URL_FILES = (import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin").replace('/admin', '') + "/files";
 
 export default function LiveChatGuest() {
   const [error, setError] = useState("");

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./AdminLogin.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin";
 
 export default function ForgotPassword() {
   const [step, setStep] = useState("email"); // email, code, reset
