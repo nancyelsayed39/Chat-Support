@@ -30,9 +30,9 @@ const resetPasswordValidation = Joi.object({
 })
 
 const createAdminValidation = Joi.object({
-    name: Joi.string().pattern(/^[A-Za-z\s]+$/).required(),
+    name: Joi.string().min(2).required(),
     email: Joi.string().email().required(),
-    password: Joi.string().pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/).required(),
+    password: Joi.string().min(8).required(),
 })
 
 export { signUpValidation, confirmEmailValidation, signInValidation, forgotPasswordValidation, resetPasswordValidation, createAdminValidation }
