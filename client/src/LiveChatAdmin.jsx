@@ -3,9 +3,9 @@ import axios from "axios";
 import { socket } from "./socket";
 import "./LiveChatAdmin.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin";
-const API_BASE_URL_CONVERSATIONS = (import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin").replace('/admin', '') + "/conversations";
-const API_BASE_URL_FILES = (import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1/admin").replace('/admin', '') + "/files";
+const API_BASE_URL = import.meta.env.VITE_API_URL 
+const API_BASE_URL_CONVERSATIONS = import.meta.env.VITE_API_URL.replace('/admin', '') + "/conversations";
+const API_BASE_URL_FILES = import.meta.env.VITE_API_URL.replace('/admin', '') + "/files";
 
 export default function LiveChatAdmin() {
   const [adminId, setAdminId] = useState("");
