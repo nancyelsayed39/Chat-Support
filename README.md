@@ -318,19 +318,18 @@ MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/ChatSupport?retr
 
 ## 👨‍💼 Admin Management
 
-### Add New Admin
-```bash
-node admin-cli.js add email@example.com "Password123!" "Admin Name"
+### Add New Admin via API
+Use Postman or any HTTP client to POST to:
 ```
-
-### List All Admins
-```bash
-node admin-cli.js list
+POST /api/admins/register
 ```
-
-### Remove Admin
-```bash
-node admin-cli.js remove email@example.com
+With JSON body:
+```json
+{
+  "email": "admin@example.com",
+  "password": "Password123!",
+  "name": "Admin Name"
+}
 ```
 
 ### Password Requirements
@@ -419,7 +418,6 @@ Chat-Support/
 │   ├── .env                       # Environment variables
 │   ├── .env.example              # Example env file
 │   ├── index.js                  # Server entry point
-│   ├── admin-cli.js              # Admin management CLI
 │   ├── package.json              # Dependencies
 │   └── start-server.bat          # Windows batch script
 │

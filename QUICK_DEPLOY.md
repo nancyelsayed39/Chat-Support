@@ -113,15 +113,16 @@ VITE_SERVER_URL=https://your-api.vercel.app
 
 ## Step 6: Add Admin Users
 
-From your local machine:
+Use Postman to create admins:
 
-```powershell
-cd d:\Nancy\full stack\back\projects\Chat-Support\server
-
-# Make sure MongoDB is running locally: mongod
-
-# Add admin
-node admin-cli.js add admin@company.com "Admin@123!" "Admin Name"
+1. POST to `http://localhost:5000/api/admins/register`
+2. Set Body as JSON:
+```json
+{
+  "email": "admin@company.com",
+  "password": "Admin@123!",
+  "name": "Admin Name"
+}
 ```
 
 ---

@@ -99,4 +99,32 @@ const resetPassword = catchError(async(req,res,next)=>{
     res.json({message: "Password reset successfully"})
 })
 
-export { signIn , confirmEmail , forgotPassword, resetPassword }
+const createAdmin = catchError(async(req,res,next)=>{
+    const {email, password, name} = req.body
+    
+    // Check if admin already exists
+    let existingAdmin = await Admin.findOne({email})
+    if(existingAdmin) return next(new AppError("Admin with this email already exists", 400))
+    
+    // Create new admin
+    let newAdmin = new Admin({
+        email,
+        password,
+        name,
+        verified: true  // Admin created via API is already verified
+    })
+    
+    await newAdmin.save()
+    
+    res.status(201).json({
+        message: "Admin created successfully",
+        admin: {
+            _id: newAdmin._id,
+            email: newAdmin.email,
+            name: newAdmin.name,
+            role: newAdmin.role
+        }
+    })
+})
+
+export { signIn , confirmEmail , forgotPassword, resetPassword, createAdmin }
