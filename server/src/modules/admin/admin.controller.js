@@ -100,13 +100,19 @@ const resetPassword = catchError(async(req,res,next)=>{
 })
 
 const createAdmin = catchError(async(req,res,next)=>{
+    console.log("🔍 createAdmin request received:", req.body)
     const {email, password, name} = req.body
     
+    console.log("✅ Validating input...")
+    if(!email || !password || !name) return next(new AppError("Email, password, and name are required", 400))
+    
     // Check if admin already exists
+    console.log("🔄 Checking if admin exists...")
     let existingAdmin = await Admin.findOne({email})
     if(existingAdmin) return next(new AppError("Admin with this email already exists", 400))
     
     // Create new admin
+    console.log("➕ Creating new admin...")
     let newAdmin = new Admin({
         email,
         password,
@@ -114,8 +120,10 @@ const createAdmin = catchError(async(req,res,next)=>{
         verified: true  // Admin created via API is already verified
     })
     
+    console.log("💾 Saving admin to database...")
     await newAdmin.save()
     
+    console.log("✅ Admin created successfully")
     res.status(201).json({
         message: "Admin created successfully",
         admin: {
